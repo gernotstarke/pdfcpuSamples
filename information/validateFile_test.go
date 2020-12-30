@@ -1,16 +1,16 @@
 package information
 
 import (
-	"pdfcpuSamples/samplePDFs"
+	"pdfcpuSamples/samplepdfs"
 	"testing"
 )
 
 func TestValidate(t *testing.T) {
 	// positive check: valid PDF should return true
-	valid, _ := ValidatePDFFile(samplePDFs.OnePageFile)
+	valid, _ := ValidatePDFFile(samplepdfs.OnePageFile)
 
 	if valid != true {
-		t.Errorf("ValidatePDFFile returned false, should be true: %v", samplePDFs.OnePageFile)
+		t.Errorf("ValidatePDFFile returned false, should be true: %v", samplepdfs.OnePageFile)
 	}
 
 	// negative check: non-existing file should return false
@@ -29,8 +29,8 @@ func TestValidate(t *testing.T) {
 	}
 
 	// negative check: markdown file with pdf extension should fail
-	valid, _ = ValidatePDFFile(samplePDFs.DisguisedMarkdownFile)
+	valid, _ = ValidatePDFFile(samplepdfs.DisguisedMarkdownFile)
 	if valid != false {
-		t.Errorf("ValidatePDFFile returned true, should be false for bad PDF file: %v", samplePDFs.DisguisedMarkdownFile)
+		t.Errorf("ValidatePDFFile returned true, should be false for bad PDF file: %v", samplepdfs.DisguisedMarkdownFile)
 	}
 }

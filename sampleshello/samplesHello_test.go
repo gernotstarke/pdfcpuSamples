@@ -1,4 +1,4 @@
-package samplesHello
+package sampleshello
 
 import "testing"
 

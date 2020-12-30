@@ -2,7 +2,7 @@ package information
 
 import (
 	"fmt"
-	samplePDFs "pdfcpuSamples/samplePDFs"
+	samplePDFs "pdfcpuSamples/samplepdfs"
 	"testing"
 )
 

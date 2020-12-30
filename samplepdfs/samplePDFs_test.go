@@ -1,4 +1,4 @@
-package samplePDFs
+package samplepdfs
 
 import (
 	"pdfcpuSamples/information"

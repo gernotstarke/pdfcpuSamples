@@ -1,6 +1,6 @@
 // samplePDFs contain constant declarations for several sample PDF files,
 // plus their (relative) path information, so that other test cases can be DRY.
-package samplePDFs
+package samplepdfs
 
 // private constant
 const dirName = "../SamplePDFs/"
