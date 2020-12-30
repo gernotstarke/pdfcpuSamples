@@ -9,7 +9,7 @@ func TestHello(t *testing.T) {
 	}
 }
 
-func TestAnother( t *testing.T) {
+func TestAnother(t *testing.T) {
 	want := "Hello, world."
 	if got := quoteHello(); got != want {
 		t.Errorf("Hello() = %q, want %q", got, want)
