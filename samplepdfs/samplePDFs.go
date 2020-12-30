@@ -3,10 +3,10 @@
 package samplepdfs
 
 // private constant
-const dirName = "../SamplePDFs/"
 
 // public constants
-const OnePageFile = dirName + "sample-A4-portrait-1pg.pdf"
-const ThreePageFile = dirName + "sample-A4-portrait-3pg.pdf"
+const DirPrefix = "../SamplePDFs/"
+const OnePageFile = DirPrefix + "sample-A4-portrait-1pg.pdf"
+const ThreePageFile = DirPrefix + "sample-A4-portrait-3pg.pdf"
 
-const DisguisedMarkdownFile = dirName + "md-disguised-as.pdf"
+const DisguisedMarkdownFile = DirPrefix + "md-disguised-as.pdf"
