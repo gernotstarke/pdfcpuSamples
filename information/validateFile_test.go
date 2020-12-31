@@ -5,6 +5,8 @@ import (
 	"testing"
 )
 
+//
+
 func TestValidate(t *testing.T) {
 	// positive check: valid PDF should return true
 	valid, _ := ValidatePDFFile(samplepdfs.OnePageFile)

@@ -1,7 +1,7 @@
 package information
 
 import (
-	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -9,6 +9,13 @@ import (
 
 // CountPDFsInDir returns the number of PDF files in the given directory
 func CountPDFsInDir(dirName string) int {
+
+	nrOfPDFFiles, _ := CountAndCollectPDFsInDir(dirName)
+	return nrOfPDFFiles
+}
+
+// CountAndCollectPDFsInDir returns the number of PDF files in the given directory
+func CountAndCollectPDFsInDir(dirName string) (int, []string) {
 
 	var files []string
 	var fCount int
@@ -20,21 +27,17 @@ func CountPDFsInDir(dirName string) int {
 			return nil
 		}
 
-		// count only PDF files
-		if strings.ToUpper( filepath.Ext(path)) == ".PDF" {
+		// count and collect only PDF files
+		if strings.ToUpper(filepath.Ext(path)) == ".PDF" {
 			fCount++
 			files = append(files, info.Name())
 		}
-
 		return nil
 	})
+
 	if err != nil {
-		panic(err)
+		log.Println("Error in walking the filepath " + dirName)
 	}
 
-	for _, file := range files {
-		fmt.Println(file)
-	}
-
-	return fCount
+	return fCount, files
 }
