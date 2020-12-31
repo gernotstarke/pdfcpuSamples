@@ -20,9 +20,17 @@ var testCases = []struct {
 		1,
 	},
 	{ // Four files, TWO PDFs
-		dirName: prefix + "FourFilesTwoPDFs",
-		expectedNrOfPDFs: 2,
+		prefix + "FourFilesTwoPDFs",
+		2,
 	},
+	{ // 12 PDFfs
+		prefix + "TwelvePDFs",
+		12,
+	},
+	{ // One PDF, one subfolder with extension PDF that should not count
+		prefix+"OnePDFWithSubfolder",
+		1,
+	 },
 }
 func TestCountPDFsInDir(t *testing.T) {
 
