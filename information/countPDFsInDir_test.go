@@ -7,8 +7,8 @@ import (
 
 const prefix = samplepdfs.DirPrefix
 
-var testCases = []struct {
-	dirName     string
+var testDirs = []struct {
+	dirName          string
 	expectedNrOfPDFs int
 }{
 	{ // empty Dir
@@ -28,17 +28,17 @@ var testCases = []struct {
 		12,
 	},
 	{ // One PDF, one subfolder with extension PDF that should not count
-		prefix+"OnePDFWithSubfolder",
+		prefix + "OnePDFWithSubfolder",
 		1,
-	 },
+	},
 }
+
 func TestCountPDFsInDir(t *testing.T) {
 
-
-	for _,d  := range testCases {
+	for _, d := range testDirs {
 		got := CountPDFsInDir(d.dirName)
-		if  got != d.expectedNrOfPDFs {
-			t.Errorf("FAIL: directory %s expected %v, got %v PDF files", d.dirName, d.expectedNrOfPDFs, got )
+		if got != d.expectedNrOfPDFs {
+			t.Errorf("FAIL: directory %s expected %v, got %v PDF files", d.dirName, d.expectedNrOfPDFs, got)
 		}
 	}
 

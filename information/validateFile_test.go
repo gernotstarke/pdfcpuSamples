@@ -26,7 +26,7 @@ func TestValidate(t *testing.T) {
 	// negative check: wrong extension should fail
 	badExtensionFile := nonExistingFileName + ".XZY"
 	valid, _ = ValidatePDFFile(badExtensionFile)
-	if valid == true {
+	if valid != false {
 		t.Errorf("ValidatePDFFile returned true, should be false for non-PDF extension: %v", badExtensionFile)
 	}
 

@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-// fileExists checks if a file exists.
+// FileExists checks if a file exists.
 // It does not care for file extensions, type, path or size.
 func FileExists(fileName string) (bool, error) {
 	var err error
@@ -31,7 +31,7 @@ func extensionValid(fileName string, needExtension string) bool {
 	return extension == needExtension
 }
 
-// validate if file is OK
+// ValidatePDFFile checks if file is OK: does it exist, does it have the proper extension, is it PDF?
 func ValidatePDFFile(pdfFileName string) (bool, error) {
 
 	// check if file exists
@@ -53,6 +53,7 @@ func ValidatePDFFile(pdfFileName string) (bool, error) {
 	err = api.ValidateFile(pdfFileName, nil)
 	if err != nil {
 		msg := "File" + pdfFileName + " is no valid PDF."
+		log.Print(msg)
 		return false, errors.New(msg)
 	}
 
