@@ -5,7 +5,7 @@ import (
 	"github.com/pdfcpu/pdfcpu/pkg/api"
 )
 
-// countPagesOfODFFile counts the pages of fileName.
+// CountPagesOfPDFFile counts the pages of fileName.
 func CountPagesOfPDFFile(pdfFileName string) (int, error) {
 
 	// use default configuration for pdfcpu ("nil")
