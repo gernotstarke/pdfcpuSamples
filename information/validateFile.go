@@ -44,7 +44,7 @@ func ValidatePDFFile(pdfFileName string) (bool, error) {
 	// check if file has proper extension PDF
 	if !extensionValid(pdfFileName, "PDF") {
 		msg := "File" + pdfFileName + " has wrong extension"
-		log.Printf(msg)
+		log.Println(msg)
 		return false, errors.New(msg)
 	}
 
@@ -53,7 +53,7 @@ func ValidatePDFFile(pdfFileName string) (bool, error) {
 	err = api.ValidateFile(pdfFileName, nil)
 	if err != nil {
 		msg := "File" + pdfFileName + " is no valid PDF."
-		log.Print(msg)
+		log.Println(msg)
 		return false, errors.New(msg)
 	}
 
