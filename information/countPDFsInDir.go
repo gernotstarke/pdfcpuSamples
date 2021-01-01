@@ -20,7 +20,15 @@ func CountAndCollectPDFsInDir(dirName string) (int, []string) {
 	var files []string
 	var fCount int
 
+	log.Print(dirName)
+
 	err := filepath.Walk(dirName, func(path string, info os.FileInfo, err error) error {
+
+		// ignore non-existing files
+		if (err != nil) && os.IsNotExist(err) {
+			log.Printf("FAIL: %v does not exist.", dirName)
+			return nil
+		}
 
 		// exclude dirs
 		if info.IsDir() {
