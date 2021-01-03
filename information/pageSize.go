@@ -11,6 +11,7 @@ package information
 
 import (
 	"github.com/pdfcpu/pdfcpu/pkg/api"
+	"log"
 )
 
 type dim struct {
@@ -18,17 +19,25 @@ type dim struct {
 	height float64
 }
 
-var pageDimensions []dim
 
 func GetPageDimensions(fname string) []dim {
 
 	pageCount, _ := CountPagesOfPDFFile(fname)
+	log.Printf("pagecount of %v was %v", fname, pageCount)
 
-	pdfcpuDims, _ := api.PageDimsFile(fname)
+    var pageDimensions []dim
+	var currentPageDim dim
+
+	pdfcpuDims, err := api.PageDimsFile(fname)
+
+	if err!=nil{
+		log.Printf("Error %v", err)
+	}
 
 	for i := 0; i < pageCount; i++ {
-		pageDimensions[i].width = pdfcpuDims[i].Width
-		pageDimensions[i].height = pdfcpuDims[i].Height
+		currentPageDim.width = pdfcpuDims[i].Width
+		currentPageDim.height = pdfcpuDims[i].Height
+		pageDimensions = append(pageDimensions, currentPageDim)
 	}
 
 	return pageDimensions

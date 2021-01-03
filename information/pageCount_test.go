@@ -1,7 +1,6 @@
 package information
 
 import (
-	"fmt"
 	samplePDFs "pdfcpuSamples/samplepdfs"
 	"testing"
 )
@@ -25,7 +24,6 @@ var testPDFs = []struct {
 
 func TestPageCount(t *testing.T) {
 	want := 1
-	fmt.Println(samplePDFs.OnePageFile)
 
 	if got, _ := CountPagesOfPDFFile(samplePDFs.OnePageFile); got != want {
 		t.Errorf("FAIL: CountPagesOfPDFFile() = %v, want %v", got, want)
